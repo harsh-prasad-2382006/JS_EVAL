@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="name" placeholder="Enter name">
+    <span id="nameError" style="color:red;display:none">Invalid name</span>
+    <input type="text" name="" id="email" placeholder="Enter email">
+    <span id="emailError" style="color:red;display:none">Invalid Email</span>
+    <input type="password" name="" id="password" placeholder="Enter password">
+    <span id="passError" style="color:red;display:none">Invalid Password</span>
+    <button id="submit">Submit</button>
+    <script>
+        let submit = document.getElementById("submit")
+        submit.addEventListener('click', () => {
+            let isnameValid = false;
+            let isemailValid = false;
+            let isPasswordValid = false;
+
+            let name = document.getElementById("name").value.trim()
+            let nameRegex = /^[A-Za-z\s]{2,}$/
+
+            if (!nameRegex.test(name)) {
+                document.getElementById("nameError").style.display = "block"
+            } else {
+                document.getElementById("nameError").style.display = "none"
+                isnameValid = true;
+            }
+
+            let email = document.getElementById("email").value.trim()
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            if (!emailRegex.test(email)) {
+                document.getElementById("emailError").style.display = "block"
+            } else {
+                document.getElementById("emailError").style.display = "none"
+                isemailValid = true;
+            }
+
+            let pass = document.getElementById("password").value.trim()
+            let passRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#!_]).{8,}$/
+            if (!passRegex.test(pass)) {
+                document.getElementById("passError").style.display = "block"
+            } else {
+                document.getElementById("passError").style.display = "none"
+                isPasswordValid = true;
+            }
+
+            if (isnameValid && isemailValid && isPasswordValid) {
+                let detail = {
+                    name: name,
+                    email: email
+                }
+                
+                alert("Details added successfully")
+            }
+        })
+    </script>
+</body>
+
+</html>

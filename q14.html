@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="email" name="" id="email">
+    <input type="password" name="" id="password">
+    <button id="submit">Submit</button> 
+    <script>
+         let submit = document.getElementById("submit")
+        let credential = {
+            email :"harshu@gmail.com",
+            password :"1234"
+         }
+        localStorage.setItem("credential",JSON.stringify(credential))
+        let email = document.getElementById("email").value.trim()
+        let password = document.getElementById("password").value.trim()
+        submit.addEventListener('click',()=>{
+        let validData = JSON.parse(localStorage.getItem("credential"))
+                if(validData.email !== email && validData.password!== password){
+                    alert("Invalid credential")
+                }else{
+                    alert("Login successfull")
+                }
+            
+         })
+    </script>
+</body>
+</html>

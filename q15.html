@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>count <span id="counts">0</span></p>
+    <button id="inc">Inc</button>
+    <button id="dec">Dec</button>
+    <button id="reset">Reset</button>
+
+    <script>
+        let inc =  document.getElementById("inc")
+        let dec =  document.getElementById("dec")
+        let reset =  document.getElementById("reset")
+        let counts=  localStorage.getItem("count")
+        inc.addEventListener('click',()=>{
+            counts ++;
+            localStorage.setItem("count",counts)
+            counts = document.getElementById("counts").textContent=counts
+        })
+        dec.addEventListener('click',()=>{
+            counts --;
+            localStorage.setItem("count",counts)
+            counts = document.getElementById("counts").textContent=counts
+        })
+        reset.addEventListener('click',()=>{
+            counts=0;
+            localStorage.setItem("count",counts)
+            counts = document.getElementById("counts").textContent=counts
+        })
+    </script>
+</body>
+</html>

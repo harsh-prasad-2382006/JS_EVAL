@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Total Products <span id="total">0</span></p>
+    <button id="submit">Total Procut</button>
+
+    <script>
+        let btn = document.getElementById("submit")
+        let totalProduct = 24;
+        
+        btn.addEventListener('click',()=>{
+            let total = document.getElementById("total")
+            total.textContent= totalProduct
+        })
+    </script>
+</body>
+</html>
